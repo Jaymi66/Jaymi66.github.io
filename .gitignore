@@ -86,3 +86,5 @@ $RECYCLE.BIN/
 
 
 .deploy_git
+
+db.json
