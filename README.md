@@ -1,6 +1,8 @@
 # Jaymi66.github.io
 我的博客
 
+[link](http://www.mysaul.com)
+
 ## 部署步骤
 
 #### 每次部署的步骤，可按以下三步来进行:
