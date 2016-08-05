@@ -14,7 +14,7 @@ tags: [jQuery.js, Zepto.js]
 * 这时候执行该事件会根据绑定的次数来多次执行该事件，如何解决这个问题？
 * 如何让事件多次执行监听而只bind一次。
 
-```
+```js
 $(‘.class’).unbind(‘click’).on(‘click’, function(){ … });
 ```
 

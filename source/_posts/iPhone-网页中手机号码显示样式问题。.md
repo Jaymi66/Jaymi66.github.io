@@ -12,6 +12,6 @@ tags: [web, iPhone]
 
 我们可以添加 meta 标签来禁用掉手机号码自动添加link的功能
 
-```
+```html
 <meta name="format-detection" content="telephone=no">
 ```
