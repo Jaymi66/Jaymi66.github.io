@@ -50,6 +50,23 @@
   <% } %>
 </article>
 
+<% if (!index){ %>
+<!-- 捐赠 -- start -->
+<div class="reward">
+  <span>捐赠</span>
+  <div class="clearfix"></div>
+  <div class="reward-item">
+    <p>微信</p>
+    <div class="reward-img wechat"></div>
+  </div>
+  <div class="reward-item">
+    <p>支付宝</p>
+    <div class="reward-img alipay"></div>
+  </div>
+</div>
+<!-- 捐赠 -- end -->
+<% } %>
+
 <% if (!index && theme.share_jia){ %>
 <%- partial('post/share_jia') %>
 <% } %>
