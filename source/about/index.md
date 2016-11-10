@@ -6,6 +6,6 @@ layout: "page"
 
 My name is XiaoQiang Zhang(张晓强), you can call me Zail.
 
-I am a WEB Developer.
+I'm a WEB Developer.
 
-I love l technology, like React、 NodeJS、 MongoDB、 Docker...
+I love technology, such as React、 NodeJS、 MongoDB、 Docker...
