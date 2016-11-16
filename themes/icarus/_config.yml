@@ -1,0 +1,79 @@
+# Menus
+menu:
+  首页: .
+  归档: archives
+  # Categories: categories
+  标签: tags
+  关于我: about
+
+# Customize
+customize:
+    logo:
+        enabled: true
+        width: 40
+        height: 40
+        url: https://avatars1.githubusercontent.com/u/16249943?v=3&s=460
+    profile:
+        enabled: true # Whether to show profile bar
+        avatar: css/images/avatar.png
+        gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
+        author: Zail
+        author_title: 一个想做 NodeJS 的前端.
+        location: Harbin, China
+        follow: https://github.com/zzzzail/
+    highlight: monokai
+    sidebar: right # sidebar position, options: left, right
+    thumbnail: false # enable posts thumbnail, options: true, false
+    favicon: # path to favicon
+    social_links:
+        github: http://github.com/zzzzail/
+        twitter: /
+        facebook: /
+        dribbble: /
+        rss: /
+    social_link_tooltip: true # enable the social link tooltip, options: true, false
+
+# Widgets
+widgets:
+    - recent_posts
+    - category
+    - archive
+    - tag
+    - tagcloud
+    - links
+
+# Search
+search:
+    insight: true # you need to install `hexo-generator-json-content` before using Insight Search
+    swiftype: # enter swiftype install key here
+    baidu: false # you need to disable other search engines to use Baidu search, options: true, false
+
+# Comment
+comment:
+    disqus: # enter disqus shortname here
+    duoshuo: zail # enter duoshuo shortname here
+    youyan: # enter youyan uid here
+
+# Share
+share: bdshare # options: jiathis, bdshare, addtoany, default
+
+# Plugins
+plugins:
+    lightgallery: true # options: true, false
+    justifiedgallery: true # options: true, false
+    google_analytics: # enter the tracking ID for your Google Analytics
+    google_site_verification: # enter Google site verification code
+    baidu_analytics: # enter Baidu Analytics hash key
+
+# Miscellaneous
+miscellaneous:
+    open_graph: # see http://ogp.me
+        fb_app_id:
+        fb_admins:
+        twitter_id:
+        google_plus:
+    links:
+        Freax的博客: http://www.myfreax.com/
+        geemo的博客: https://geemo.top/
+        圈圈的博客: http://www.wxybaby.com/
+        我是狗的网站: http://fkwebs.com/
