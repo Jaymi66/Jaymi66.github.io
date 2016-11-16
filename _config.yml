@@ -69,5 +69,5 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Jaymi66/Jaymi66.github.io.git
+  repo: https://github.com/zzzzail/zzzzail.github.io.git
   branch: master
