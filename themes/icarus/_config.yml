@@ -15,7 +15,7 @@ customize:
         url: https://avatars1.githubusercontent.com/u/16249943?v=3&s=460
     profile:
         enabled: true # Whether to show profile bar
-        avatar: css/images/avatar.png
+        avatar: https://avatars1.githubusercontent.com/u/16249943?v=3&s=460
         gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
         author: Zail
         author_title: 一个想做 NodeJS 的前端.
