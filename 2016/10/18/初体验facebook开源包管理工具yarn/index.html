@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>初体验facebook开源包管理工具yarn | Zail&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="害怕 facebook 网站小伙伴们被墙, 搞了传到 csdn 的图片一张.
+
+我勒个去，现在的 node 相关的开源社区太活跃了，github 上 facebook 活跃度已经是第二了，第一是微软🙄.
+yarn 又是什么？
+
+→_→ 包管理工具
+
+包管理工具不是有: npm、bower …… 了吗!？
+
+→_→ 好用吗？下载速度快吗？安全吗？可靠吗？有良好的依赖吗？
+
+不知道 … 凑合用吧.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初体验facebook开源包管理工具yarn">
+<meta property="og:url" content="http://mysaul.com/2016/10/18/初体验facebook开源包管理工具yarn/index.html">
+<meta property="og:site_name" content="Zail's Blog">
+<meta property="og:description" content="害怕 facebook 网站小伙伴们被墙, 搞了传到 csdn 的图片一张.
+
+我勒个去，现在的 node 相关的开源社区太活跃了，github 上 facebook 活跃度已经是第二了，第一是微软🙄.
+yarn 又是什么？
+
+→_→ 包管理工具
+
+包管理工具不是有: npm、bower …… 了吗!？
+
+→_→ 好用吗？下载速度快吗？安全吗？可靠吗？有良好的依赖吗？
+
+不知道 … 凑合用吧.">
+<meta property="og:image" content="http://img.blog.csdn.net/20161012124212953">
+<meta property="og:updated_time" content="2017-03-27T10:48:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初体验facebook开源包管理工具yarn">
+<meta name="twitter:description" content="害怕 facebook 网站小伙伴们被墙, 搞了传到 csdn 的图片一张.
+
+我勒个去，现在的 node 相关的开源社区太活跃了，github 上 facebook 活跃度已经是第二了，第一是微软🙄.
+yarn 又是什么？
+
+→_→ 包管理工具
+
+包管理工具不是有: npm、bower …… 了吗!？
+
+→_→ 好用吗？下载速度快吗？安全吗？可靠吗？有良好的依赖吗？
+
+不知道 … 凑合用吧.">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161012124212953">
+    
+
+    
+        <link rel="alternate" href="/" title="Zail&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Zail&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://avatars1.githubusercontent.com/u/16249943?v=3&amp;s=460" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://avatars1.githubusercontent.com/u/16249943?v=3&amp;s=460" />
+            <h2 id="name">Zail</h2>
+            <h3 id="title">一个想做 NodeJS 的前端.</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>JiNan, China</span>
+            <a id="follow" target="_blank" href="https://github.com/zzzzail/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                10
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/zzzzail/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-初体验facebook开源包管理工具yarn" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            初体验facebook开源包管理工具yarn
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/10/18/初体验facebook开源包管理工具yarn/">
+            <time datetime="2016-10-18T06:27:07.000Z" itemprop="datePublished">2016-10-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>害怕 facebook 网站小伙伴们被墙, 搞了传到 csdn 的图片一张.</p>
+<p><img src="http://img.blog.csdn.net/20161012124212953" alt="官方LOGO"></p>
+<p>我勒个去，现在的 node 相关的开源社区太活跃了，github 上 facebook 活跃度已经是第二了，第一是微软🙄.</p>
+<p>yarn 又是什么？</p>
+<blockquote>
+<p>→_→ 包管理工具</p>
+</blockquote>
+<p>包管理工具不是有: npm、bower …… 了吗!？</p>
+<blockquote>
+<p>→_→ 好用吗？下载速度快吗？安全吗？可靠吗？有良好的依赖吗？</p>
+</blockquote>
+<p>不知道 … 凑合用吧.</p>
+<a id="more"></a>
+<p>哈哈哈哈开始说之前, 我也说不出来 npm 是不是好用, 但是慢不是一个人说的, 我觉得也慢.</p>
+<p>yarn 还简化了 npm 的使用.</p>
+<p>就冲这两点, 也应该看一下.</p>
+<p>好下面直接开始!</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g yarn</div></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yarn init</div><div class="line"></div><div class="line"># 查看是否正确安装好</div><div class="line">$ yarn --version</div></pre></td></tr></table></figure>
+<p>我尼玛和 npm 有什么区别!？</p>
+<blockquote>
+<p>别着急嘛</p>
+</blockquote>
+<h5 id="管理依赖"><a href="#管理依赖" class="headerlink" title="管理依赖"></a>管理依赖</h5><h6 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 这里不需要 --save 参数直接可以写到 package.json 文件里, 后面可跟@version版本号、也可以跟@tag 指代git上的推送的tag</div><div class="line">$ yarn add [package]</div></pre></td></tr></table></figure>
+<h6 id="更新依赖"><a href="#更新依赖" class="headerlink" title="更新依赖"></a>更新依赖</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 更新某个包, 同时也有 @version 、 @tag. 不加包名即更新所有依赖</div><div class="line">$ yarn upgrade [package]</div></pre></td></tr></table></figure>
+<h6 id="移除依赖"><a href="#移除依赖" class="headerlink" title="移除依赖"></a>移除依赖</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 移除某个包 </div><div class="line">$ yarn remove [package]</div></pre></td></tr></table></figure>
+<h6 id="如果有-package-json-或者是-bower-json"><a href="#如果有-package-json-或者是-bower-json" class="headerlink" title="如果有 package.json 或者是 bower.json"></a>如果有 package.json 或者是 bower.json</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 直接 yarn 或者 yarn install 即可安装所有依赖</div><div class="line">$ yarn</div></pre></td></tr></table></figure>
+<h6 id="下一个包玩玩"><a href="#下一个包玩玩" class="headerlink" title="下一个包玩玩"></a>下一个包玩玩</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ yarn add g2</div><div class="line">yarn add v0.15.1</div><div class="line">info No lockfile found.</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">[4/4] 📃  Building fresh packages...</div><div class="line">success Saved lockfile.</div><div class="line">success Saved 1 new dependency</div><div class="line">└─ g2@2.0.4</div><div class="line">✨  Done in 2.10s.</div></pre></td></tr></table></figure>
+<p>运行下来没有那么多警告, 还有很友好的时间等其他的提示, 还会直接建立 <code>package.json</code> 文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;g2&quot;: &quot;^2.0.4&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>是不是用着很舒服呢？</p>
+<p>至于那个什么锁的东西我还不会…😁哈哈哈哈</p>
+
+            <!-- 捐赠 -- start -->
+            <div class="reward">
+                <span>捐赠</span>
+                <div class="clearfix"></div>
+                <div class="reward-item">
+                    <p>微信</p>
+                    <div class="reward-img wechat"></div>
+                </div>
+                <div class="reward-item">
+                    <p>支付宝</p>
+                    <div class="reward-img alipay"></div>
+                </div>
+            </div>
+            <!-- 捐赠 -- end -->
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://mysaul.com/2016/10/18/初体验facebook开源包管理工具yarn/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2016/10/18/初体验facebook开源包管理工具yarn/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/02/如何写pm2-start文件/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    如何写pm2 start文件
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/10/18/理解MongoDB的mapReduce使用及流程/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">理解MongoDB的mapReduce使用及流程</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2016/10/18/初体验facebook开源包管理工具yarn/" data-title="初体验facebook开源包管理工具yarn" data-url="http://mysaul.com/2016/10/18/初体验facebook开源包管理工具yarn/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/01/06/Ubuntu14-04下安装MongoDB并创建用户/" class="title">Ubuntu14.04下安装MongoDB并创建用户</a></p>
+                            <p class="item-date"><time datetime="2017-01-06T06:06:38.000Z" itemprop="datePublished">2017-01-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/12/27/我的2016年年终总结/" class="title">我的2016年年终总结.</a></p>
+                            <p class="item-date"><time datetime="2016-12-27T15:20:49.000Z" itemprop="datePublished">2016-12-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/12/02/如何写pm2-start文件/" class="title">如何写pm2 start文件</a></p>
+                            <p class="item-date"><time datetime="2016-12-02T03:22:54.000Z" itemprop="datePublished">2016-12-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/10/18/初体验facebook开源包管理工具yarn/" class="title">初体验facebook开源包管理工具yarn</a></p>
+                            <p class="item-date"><time datetime="2016-10-18T06:27:07.000Z" itemprop="datePublished">2016-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/10/18/理解MongoDB的mapReduce使用及流程/" class="title">理解MongoDB的mapReduce使用及流程</a></p>
+                            <p class="item-date"><time datetime="2016-10-18T02:39:11.000Z" itemprop="datePublished">2016-10-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zepto-js/">Zepto.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-js/">jQuery.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2/">pm2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 20px;">MongoDB</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Zepto-js/" style="font-size: 10px;">Zepto.js</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/iPhone/" style="font-size: 10px;">iPhone</a> <a href="/tags/jQuery-js/" style="font-size: 10px;">jQuery.js</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.myfreax.com/">Freax的博客</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://geemo.top/">geemo的博客</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.wxybaby.com/">圈圈的博客</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://fkwebs.com/">我是狗的网站</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Zail<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zail'};
+    (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
