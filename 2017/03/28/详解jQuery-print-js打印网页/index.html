@@ -3,17 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2017/1 | Zail&#39;s Blog</title>
+    <title>详解jQuery.print.js打印网页. | Zail&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zail's Blog">
-<meta property="og:url" content="http://mysaul.com/archives/2017/01/index.html">
+    <meta name="description" content="jQuery.print.js 是基于jQuery的网页打印插件, 可以打印全网页, 也可以打印页面某一部分.
+GitHub
+使用很简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解jQuery.print.js打印网页.">
+<meta property="og:url" content="http://mysaul.com/2017/03/28/详解jQuery-print-js打印网页/index.html">
 <meta property="og:site_name" content="Zail's Blog">
-<meta property="og:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta property="og:description" content="jQuery.print.js 是基于jQuery的网页打印插件, 可以打印全网页, 也可以打印页面某一部分.
+GitHub
+使用很简单">
+<meta property="og:updated_time" content="2017-03-28T06:46:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zail's Blog">
-<meta name="twitter:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta name="twitter:title" content="详解jQuery.print.js打印网页.">
+<meta name="twitter:description" content="jQuery.print.js 是基于jQuery的网页打印插件, 可以打印全网页, 也可以打印页面某一部分.
+GitHub
+使用很简单">
     
 
     
@@ -204,45 +211,214 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-详解jQuery-print-js打印网页" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/06/Ubuntu14-04下安装MongoDB并创建用户/">Ubuntu14.04下安装MongoDB并创建用户</a>
+        <h1 class="article-title" itemprop="name">
+            详解jQuery.print.js打印网页.
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/01/06/Ubuntu14-04下安装MongoDB并创建用户/">
-            <time datetime="2017-01-06T06:06:38.000Z" itemprop="datePublished">2017-01-06</time>
+        <a href="/2017/03/28/详解jQuery-print-js打印网页/">
+            <time datetime="2017-03-28T04:05:53.000Z" itemprop="datePublished">2017-03-28</time>
         </a>
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MongoDB/">MongoDB</a>
+        <a class="tag-link" href="/tags/jQuery-js/">jQuery.js</a>, <a class="tag-link" href="/tags/jQuery-print-js/">jQuery.print.js</a>
     </div>
 
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>jQuery.print.js 是基于jQuery的网页打印插件, 可以打印全网页, 也可以打印页面某一部分.</p>
+<p><a href="https://github.com/DoersGuild/jQuery.print" target="_blank" rel="external">GitHub</a></p>
+<p>使用很简单</p>
+<a id="more"></a>
+<p>html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh_cn"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"print"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>123<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>456<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>789<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/jquery/1.11.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jQuery.print.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">		$(<span class="string">'#print'</span>).print()</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>参数列表:</p>
+<h5 id="1-globalStyles"><a href="#1-globalStyles" class="headerlink" title="1. globalStyles"></a>1. globalStyles</h5><ul>
+<li>说明: 是否包含父元素的样式</li>
+<li>参数类型: Boolean</li>
+<li>默认: true</li>
+</ul>
+<h5 id="2-mediaPrint"><a href="#2-mediaPrint" class="headerlink" title="2. mediaPrint"></a>2. mediaPrint</h5><ul>
+<li>说明: 是否应包括带有media=’print’的链接标签</li>
+<li>参数类型: Boolean</li>
+<li>默认: false</li>
+</ul>
+<h5 id="3-stylesheet"><a href="#3-stylesheet" class="headerlink" title="3. stylesheet"></a>3. stylesheet</h5><ul>
+<li>说明: 添加一个外部的css样式文件</li>
+<li>参数类型: URL-string</li>
+<li>默认: null</li>
+</ul>
+<h5 id="4-noPrintSelector"><a href="#4-noPrintSelector" class="headerlink" title="4. noPrintSelector"></a>4. noPrintSelector</h5><ul>
+<li>说明: 跳过打印的标签, 元素带有class=”no-print”时跳过打印.</li>
+<li>参数类型: Any valid <code>jQuery-selector</code></li>
+<li>默认: “.no-print”</li>
+</ul>
+<h5 id="5-iframe"><a href="#5-iframe" class="headerlink" title="5. iframe"></a>5. iframe</h5><ul>
+<li>说明: 是否从iframe中打印, 可以使用自己定义的iframe元素, 注意: 设置为false时, chrome会拦截.</li>
+<li>参数类型: Any valid jQuery-selector or Boolean</li>
+<li>默认: true, 如果iframe参数无效, 则创建一个隐藏的iframe</li>
+</ul>
+<h5 id="6-append-prepend"><a href="#6-append-prepend" class="headerlink" title="6. append/prepend"></a>6. append/prepend</h5><ul>
+<li>说明: 添加选中的html元素或自定义标签, prepend(在前面添加), append(在后面添加)</li>
+<li>参数类型: Any valid <code>jQuery-selector</code> or HTML-text</li>
+<li>默认: null</li>
+</ul>
+<h5 id="7-title"><a href="#7-title" class="headerlink" title="7. title"></a>7. title</h5><ul>
+<li>说明: 修改打印标题, 默认html文档标题</li>
+<li>参数类型: string</li>
+<li>默认: null</li>
+</ul>
+
+            <!-- 捐赠 -- start -->
+            <div class="reward">
+                <span>捐赠</span>
+                <div class="clearfix"></div>
+                <div class="reward-item">
+                    <p>微信</p>
+                    <div class="reward-img wechat"></div>
+                </div>
+                <div class="reward-item">
+                    <p>支付宝</p>
+                    <div class="reward-img alipay"></div>
                 </div>
             </div>
+            <!-- 捐赠 -- end -->
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
 </div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://mysaul.com/2017/03/28/详解jQuery-print-js打印网页/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2017/03/28/详解jQuery-print-js打印网页/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/01/06/Ubuntu14-04下安装MongoDB并创建用户/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Ubuntu14.04下安装MongoDB并创建用户</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2017/03/28/详解jQuery-print-js打印网页/" data-title="详解jQuery.print.js打印网页." data-url="http://mysaul.com/2017/03/28/详解jQuery-print-js打印网页/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
