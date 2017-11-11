@@ -18,7 +18,7 @@ customize:
         avatar: https://avatars1.githubusercontent.com/u/16249943?v=3&s=460
         gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
         author: Zail
-        author_title: 一条狗
+        author_title: 知识积累
         location: BeiJing, China
         follow: https://github.com/zzzzail/
     highlight: monokai
