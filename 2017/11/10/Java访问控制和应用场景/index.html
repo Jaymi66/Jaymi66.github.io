@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: Zepto.js | Zail&#39;s Blog</title>
+    <title>Java访问控制和应用场景 | Zail&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zail's Blog">
-<meta property="og:url" content="http://mysaul.com/tags/Zepto-js/index.html">
+    <meta name="description" content="Java 中的访问控制关键字是负责类内部成员变量和方法安全性的, 简单的说关键字是为设置外部是否能直接访问到该类内部的成员变量和方法而生的.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java访问控制和应用场景">
+<meta property="og:url" content="http://mysaul.com/2017/11/10/Java访问控制和应用场景/index.html">
 <meta property="og:site_name" content="Zail's Blog">
-<meta property="og:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta property="og:description" content="Java 中的访问控制关键字是负责类内部成员变量和方法安全性的, 简单的说关键字是为设置外部是否能直接访问到该类内部的成员变量和方法而生的.">
+<meta property="og:updated_time" content="2017-11-11T02:29:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zail's Blog">
-<meta name="twitter:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta name="twitter:title" content="Java访问控制和应用场景">
+<meta name="twitter:description" content="Java 中的访问控制关键字是负责类内部成员变量和方法安全性的, 简单的说关键字是为设置外部是否能直接访问到该类内部的成员变量和方法而生的.">
     
 
     
@@ -204,45 +205,188 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#Zepto.js</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Java访问控制和应用场景" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/06/26/如何解决Zepto-js-和-jQuery-js-事件多次执行多次bind/">如何解决Zepto.js 和 jQuery.js 事件多次执行多次bind?</a>
+        <h1 class="article-title" itemprop="name">
+            Java访问控制和应用场景
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/06/26/如何解决Zepto-js-和-jQuery-js-事件多次执行多次bind/">
-            <time datetime="2016-06-26T09:51:48.000Z" itemprop="datePublished">2016-06-26</time>
+        <a href="/2017/11/10/Java访问控制和应用场景/">
+            <time datetime="2017-11-10T02:59:12.000Z" itemprop="datePublished">2017-11-10</time>
         </a>
     </div>
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Zepto-js/">Zepto.js</a>, <a class="tag-link" href="/tags/jQuery-js/">jQuery.js</a>
-    </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Java 中的访问控制关键字是负责类内部成员变量和方法安全性的, 简单的说关键字是为设置外部是否能直接访问到该类内部的成员变量和方法而生的.</p>
+<a id="more"></a>
+<p>Java 中有三个访问控制符, 分别是: public、protected、private</p>
+<p>有四种访问权限, 分别是: default、public、protected、private</p>
+<p>在类中声明属性和方法, 包括声明内部类时, 都可以关键字声明对应的访问权限.</p>
+<ol>
+<li>default: 默认包访问权限, 声明属性和方法时, 如果没有使用任何的权限声明则使用<code>default</code>权限. 默认权限是本包的其他类都可以访问, 但无法被其它包的类访问.</li>
+<li>public: 公共访问权限, 使用<code>public</code>进行权限控制, public 权限可以被所有的类访问.</li>
+<li>protected: 继承访问权限, 使用<code>protected</code>进行权限控制, protected权限可以被本包中的其他类和其它包中的子类访问到.</li>
+<li>private: 私有访问权限, 使用关键字<code>private</code>进行权限控制, 使用private声明的成员变量和方法只能在本类中被访问, 其它所有类都无法访问.</li>
+</ol>
+<table><br>  <tr><br>    <th>范围</th><br>    <th>private</th><br>    <th>default</th><br>    <th>protected</th><br>    <th>public</th><br>  </tr><br>  <tr><br>    <td>同一个类中</td><br>    <td>√</td><br>    <td>√</td><br>    <td>√</td><br>    <td>√</td><br>  </tr><br>  <tr><br>    <td>同一个包中(子类和非子类)</td><br>    <td>×</td><br>    <td>√</td><br>    <td>√</td><br>    <td>√</td><br>  </tr><br>  <tr><br>    <td>不同包中的子类</td><br>    <td>×</td><br>    <td>×</td><br>    <td>√</td><br>    <td>√</td><br>  </tr><br>  <tr><br>    <td>不同包中的非子类</td><br>    <td>×</td><br>    <td>×</td><br>    <td>×</td><br>    <td>√</td><br>  </tr><br></table>
 
+
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li>default: 如果不写访问权限关键字则是<code>default</code>, 比如在定义接口是可以不写内部方法的权限控制, 该接口可以被本包的类实现.</li>
+<li>public: <code>main</code>方法必须用<code>public</code>, 因为该方法要被JVM外部访问到. public的应用场景很广泛, 如POJO类中的<code>getter``setter</code>方法都需要设置public.</li>
+<li>protected: <code>protected</code>比较特殊, 也少有对应的应用场景, 如果你想该成员变量和方法只能被外部的子类访问到, 则使用该关键字.</li>
+<li>private: 私有访问权限的意思是外部完全访问不到, 如POJO的成员变量不能被外部直接访问到, 所以会设置为<code>private</code>.</li>
+</ol>
+
+            <!-- 捐赠 -- start -->
+            <div class="reward">
+                <span>捐赠</span>
+                <div class="clearfix"></div>
+                <div class="reward-item">
+                    <p>微信</p>
+                    <div class="reward-img wechat"></div>
+                </div>
+                <div class="reward-item">
+                    <p>支付宝</p>
+                    <div class="reward-img alipay"></div>
                 </div>
             </div>
+            <!-- 捐赠 -- end -->
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
 </div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://mysaul.com/2017/11/10/Java访问控制和应用场景/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2017/11/10/Java访问控制和应用场景/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/03/28/详解jQuery-print-js打印网页/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">详解jQuery.print.js打印网页.</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2017/11/10/Java访问控制和应用场景/" data-title="Java访问控制和应用场景" data-url="http://mysaul.com/2017/11/10/Java访问控制和应用场景/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
