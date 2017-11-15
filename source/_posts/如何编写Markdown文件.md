@@ -1,7 +1,7 @@
 ---
 title: 如何编写Markdown文件
 date: 2016-06-26 17:35:01
-tags: [Markdown]
+tags: [markdown]
 ---
 
 ### 使用 Markdown 的优点

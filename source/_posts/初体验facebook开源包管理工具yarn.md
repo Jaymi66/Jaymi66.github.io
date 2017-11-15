@@ -1,7 +1,7 @@
 ---
 title: 初体验facebook开源包管理工具yarn
 date: 2016-10-18 14:27:07
-tags:
+tags: [node.js, yarn]
 ---
 
 害怕 facebook 网站小伙伴们被墙, 搞了传到 csdn 的图片一张.

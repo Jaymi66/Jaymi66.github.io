@@ -1,7 +1,7 @@
 ---
 title: 理解MongoDB的mapReduce使用及流程
 date: 2016-10-18 10:39:11
-tags: [MongoDB]
+tags: [mongodb]
 ---
 
 * mapReduce 是一个多层分组查询的方法(这是个人理解的)

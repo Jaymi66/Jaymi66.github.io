@@ -1,7 +1,7 @@
 ---
 title: Ubuntu14.04下安装MongoDB并创建用户
 date: 2017-01-06 14:06:38
-tags: [MongoDB]
+tags: [mongodb]
 ---
 
 在 Ubuntu14 下安装 MongoDB 并创建用户开启鉴权

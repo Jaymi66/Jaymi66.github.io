@@ -1,7 +1,7 @@
 ---
 title: iPhone 网页中手机号码显示样式问题。
 date: 2016-06-26 22:05:26
-tags: [web, iPhone]
+tags: [web, iphone]
 ---
 
 我们在做 iPhone 上的网页的时候会遇到手机号码莫名显示为蓝色的问题,

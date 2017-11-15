@@ -1,7 +1,7 @@
 ---
 title: 如何解决Zepto.js 和 jQuery.js 事件多次执行多次bind?
 date: 2016-06-26 17:51:48
-tags: [jQuery.js, Zepto.js]
+tags: [jquery.js, zepto.js]
 ---
 
 * Zepto.js 和 jQuery.js 绑定click事件的时候,如果多次执行监听事件,会出现累积bind同一个事件的问题。

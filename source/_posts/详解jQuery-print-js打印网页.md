@@ -1,7 +1,7 @@
 ---
 title: 详解jQuery.print.js打印网页.
 date: 2017-03-28 12:05:53
-tags: [jQuery.js, jQuery.print.js]
+tags: [jquery.js, jquery.print.js]
 ---
 
 jQuery.print.js 是基于jQuery的网页打印插件, 可以打印全网页, 也可以打印页面某一部分.
