@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | Zail&#39;s Blog</title>
+    <title>理解说明Servlet生命周期. | Zail&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zail's Blog">
-<meta property="og:url" content="http://mysaul.com/archives/page/2/index.html">
+    <meta name="description" content="理解 Servlet 的生命周期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解说明Servlet生命周期.">
+<meta property="og:url" content="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/index.html">
 <meta property="og:site_name" content="Zail's Blog">
-<meta property="og:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta property="og:description" content="理解 Servlet 的生命周期">
+<meta property="og:updated_time" content="2017-11-15T03:17:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zail's Blog">
-<meta name="twitter:description" content="张晓强的博客, 前端开发工程师 加QQ群 165905011">
+<meta name="twitter:title" content="理解说明Servlet生命周期.">
+<meta name="twitter:description" content="理解 Servlet 的生命周期">
     
 
     
@@ -204,173 +205,184 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-理解说明Servlet生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/18/初体验facebook开源包管理工具yarn/">初体验facebook开源包管理工具yarn</a>
+        <h1 class="article-title" itemprop="name">
+            理解说明Servlet生命周期.
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/18/初体验facebook开源包管理工具yarn/">
-            <time datetime="2016-10-18T06:27:07.000Z" itemprop="datePublished">2016-10-18</time>
+        <a href="/2017/11/15/理解说明Servlet生命周期/">
+            <time datetime="2017-11-15T03:08:27.000Z" itemprop="datePublished">2017-11-15</time>
         </a>
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/node-js/">node.js</a>, <a class="tag-link" href="/tags/yarn/">yarn</a>
+        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/servlet/">servlet</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/18/理解MongoDB的mapReduce使用及流程/">理解MongoDB的mapReduce使用及流程</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>理解 Servlet 的生命周期</p>
+<a id="more"></a>
+<p>Servlet 有三个阶段:</p>
+<ol>
+<li>初始化:<br>当容器启动或者第一次执行, Servlet#init(ServletConfig) 方法被执行, 初始化当前 Servlet.</li>
+<li>处理请求:<br>当 HTTP 请求到达容器时, Servlet#service(ServletRequest, ServletResponse) 方法被执行, 来处理请求.<blockquote>
+<p>其中 ServletRequest 是请求对象(输入), ServletResponse 是响应对象(输出)</p>
+</blockquote>
+</li>
+<li>销毁:<br>当容器关闭时, 容器会调用Servlet#destory方法被执行, 销毁当前 Servlet.</li>
+</ol>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/18/理解MongoDB的mapReduce使用及流程/">
-            <time datetime="2016-10-18T02:39:11.000Z" itemprop="datePublished">2016-10-18</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/mongodb/">mongodb</a>
-    </div>
-
+            <!-- 捐赠 -- start -->
+            <div class="reward">
+                <span>捐赠</span>
+                <div class="clearfix"></div>
+                <div class="reward-item">
+                    <p>微信</p>
+                    <div class="reward-img wechat"></div>
+                </div>
+                <div class="reward-item">
+                    <p>支付宝</p>
+                    <div class="reward-img alipay"></div>
                 </div>
             </div>
+            <!-- 捐赠 -- end -->
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/19/分享知乎的一个话题。/">分享知乎的一个话题。</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/19/分享知乎的一个话题。/">
-            <time datetime="2016-08-19T04:21:30.000Z" itemprop="datePublished">2016-08-19</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/javascript/">javascript</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/05/原生javascript如何解决ajax跨域的问题？/">原生javascript如何解决ajax跨域的问题？</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/05/原生javascript如何解决ajax跨域的问题？/">
-            <time datetime="2016-08-05T02:53:03.000Z" itemprop="datePublished">2016-08-05</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ajax/">ajax</a>, <a class="tag-link" href="/tags/javascript/">javascript</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/06/26/iPhone-网页中手机号码显示样式问题。/">iPhone 网页中手机号码显示样式问题。</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/06/26/iPhone-网页中手机号码显示样式问题。/">
-            <time datetime="2016-06-26T14:05:26.000Z" itemprop="datePublished">2016-06-26</time>
-        </a>
-    </div>
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
 
 
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/iphone/">iphone</a>, <a class="tag-link" href="/tags/web/">web</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&laquo; 上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">下一页 &raquo;</a>
-    </nav>
+            
+    
+        <a href="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/11/10/Java访问控制和应用场景/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Java访问控制和应用场景</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div class="ds-thread" data-thread-key="2017/11/15/理解说明Servlet生命周期/" data-title="理解说明Servlet生命周期." data-url="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/"></div>
+    <style>
+        #ds-thread #ds-reset .ds-textarea-wrapper {
+            background: none;
+        }
+        #ds-reset .ds-avatar img {
+            box-shadow: none;
+        }
+        #ds-reset .ds-gradient-bg {
+            background: #f7f7f7;
+        }
+        #ds-thread #ds-reset li.ds-tab a {
+            border-radius: 3px;
+        }
+        #ds-thread #ds-reset .ds-post-button {
+            color: white;
+            border: none;
+            box-shadow: none;
+            background: #d32;
+            text-shadow: none;
+            font-weight: normal;
+            font-family: 'Microsoft Yahei';
+        }
+        #ds-thread #ds-reset .ds-post-button:hover {
+            color: white;
+            background: #DE594C;
+        }
+        #ds-thread #ds-reset .ds-post-button:active {
+            background: #d32;
+        }
+        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
+            color: white;
+            background: #d32;
+            box-shadow: none;
+            text-shadow: none;
+            font-weight: normal;
+        }
+    </style>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
