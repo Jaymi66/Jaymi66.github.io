@@ -50,8 +50,8 @@ search:
 
 # Comment
 comment:
-    disqus: # enter disqus shortname here
-    duoshuo: zail # enter duoshuo shortname here
+    disqus: zailzhang # enter disqus shortname here
+    duoshuo: # enter duoshuo shortname here
     youyan: # enter youyan uid here
 
 # Share
