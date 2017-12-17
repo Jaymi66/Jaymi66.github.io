@@ -4,15 +4,15 @@
 
 # Site
 title: Zail's Blog
-subtitle: 一个想做Node的前端
-description: 张晓强的博客, 前端开发工程师 加QQ群 165905011
+subtitle: 乱七八糟什么都渣的程序员.
+description: 张二狗的博客, 张二狗, Zail's Blog, Zail
 author: Zail
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://mysaul.com
+url: http://blog.fsocity.com/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
