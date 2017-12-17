@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>理解说明Servlet生命周期. | Zail&#39;s Blog</title>
+    <title>Spring 4.3.12.RELEASE Core Container Imporvements(核心加强) | Zail&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="理解 Servlet 的生命周期">
+    <meta name="description" content="Spring 文档链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解说明Servlet生命周期.">
-<meta property="og:url" content="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/index.html">
+<meta property="og:title" content="Spring 4.3.12.RELEASE Core Container Imporvements(核心加强)">
+<meta property="og:url" content="http://mysaul.com/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/index.html">
 <meta property="og:site_name" content="Zail's Blog">
-<meta property="og:description" content="理解 Servlet 的生命周期">
-<meta property="og:updated_time" content="2017-11-15T03:17:27.000Z">
+<meta property="og:description" content="Spring 文档链接">
+<meta property="og:updated_time" content="2017-12-17T09:25:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解说明Servlet生命周期.">
-<meta name="twitter:description" content="理解 Servlet 的生命周期">
+<meta name="twitter:title" content="Spring 4.3.12.RELEASE Core Container Imporvements(核心加强)">
+<meta name="twitter:description" content="Spring 文档链接">
     
 
     
@@ -205,7 +205,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-理解说明Servlet生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -213,7 +213,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            理解说明Servlet生命周期.
+            Spring 4.3.12.RELEASE Core Container Imporvements(核心加强)
         </h1>
     
 
@@ -222,19 +222,14 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/15/理解说明Servlet生命周期/">
-            <time datetime="2017-11-15T03:08:27.000Z" itemprop="datePublished">2017-11-15</time>
+        <a href="/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/">
+            <time datetime="2017-12-17T07:05:43.000Z" itemprop="datePublished">2017-12-17</time>
         </a>
     </div>
 
 
                         
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/servlet/">servlet</a>
-    </div>
-
                     </div>
                 
             </header>
@@ -243,18 +238,28 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>理解 Servlet 的生命周期</p>
+            <p><a href="https://docs.spring.io/spring/docs/4.3.14.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#v4_2-Core-Container-Improvements" target="_blank" rel="external">Spring 文档链接</a></p>
 <a id="more"></a>
-<p>Servlet 有三个阶段:</p>
-<ol>
-<li>初始化:<br>当容器启动或者第一次执行, Servlet#init(ServletConfig) 方法被执行, 初始化当前 Servlet.</li>
-<li>处理请求:<br>当 HTTP 请求到达容器时, Servlet#service(ServletRequest, ServletResponse) 方法被执行, 来处理请求.<blockquote>
-<p>其中 ServletRequest 是请求对象(输入), ServletResponse 是响应对象(输出)</p>
+<h3 id="1-Annotations-such-as-Bean-get-detected-and-processed-on-Java-8-default-methods-as-well-allowing-for-composing-a-configuration-class-from-interfaces-with-default-Bean-methods"><a href="#1-Annotations-such-as-Bean-get-detected-and-processed-on-Java-8-default-methods-as-well-allowing-for-composing-a-configuration-class-from-interfaces-with-default-Bean-methods" class="headerlink" title="1. Annotations such as @Bean get detected and processed on Java 8 default methods as well, allowing for composing a configuration class from interfaces with default @Bean methods."></a>1. Annotations such as <code>@Bean</code> get detected and processed on Java 8 default methods as well, allowing for composing a configuration class from interfaces with default <code>@Bean</code> methods.</h3><blockquote>
+<p><code>@Bean</code> 注解可以检查和执行 Java 8 默认方法(as well), 允许为一个接口装载一个实例化对象(使用类内部的方法).</p>
 </blockquote>
-</li>
-<li>销毁:<br>当容器关闭时, 容器会调用Servlet#destory方法被执行, 销毁当前 Servlet.</li>
-</ol>
-
+<p>示例: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> interface <span class="title">UserService</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">findUserById</span><span class="params">(Integer id)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Main</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">// 使用注解为 Service 装载实例 </span></div><div class="line">  <span class="meta">@Bean</span></div><div class="line">  <span class="function"><span class="keyword">public</span> UserService <span class="title">userServiceFindUserById</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> UserService() &#123;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUserById</span><span class="params">(Integer id)</span> </span>&#123;</div><div class="line">        System.out.println(id);</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(MainTest.class);</div><div class="line">    UserService userService = applicationContext.getBean(UserService.class);</div><div class="line">    userService.findUserById(<span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-Configuration-classes-may-declare-Import-with-regular-component-classes-now-allowing-for-a-mix-of-imported-configuration-classes-and-component-classes"><a href="#2-Configuration-classes-may-declare-Import-with-regular-component-classes-now-allowing-for-a-mix-of-imported-configuration-classes-and-component-classes" class="headerlink" title="2. Configuration classes may declare @Import with regular component classes now, allowing for a mix of imported configuration classes and component classes."></a>2. Configuration classes may declare @Import with regular component classes now, allowing for a mix of imported configuration classes and component classes.</h3><blockquote>
+<p>配置类可使用<code>@Import</code>导入单个或多个常规的组件类, 允许一个导入混合的配置类和组件类.</p>
+</blockquote>
+<p>示例:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComponentClass</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"ComponentClass"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@Import</span>(value = &#123;ComponentClass.class, ...&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainTest</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(MainTest.class);</div><div class="line">    ComponentClass component = applicationContext.getBean(ComponentClass.class);</div><div class="line">    component.print();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-Configuration-classes-may-declare-an-Order-value-getting-processed-in-a-corresponding-order-e-g-for-overriding-beans-by-name-even-when-detected-through-classpath-scanning"><a href="#3-Configuration-classes-may-declare-an-Order-value-getting-processed-in-a-corresponding-order-e-g-for-overriding-beans-by-name-even-when-detected-through-classpath-scanning" class="headerlink" title="3. Configuration classes may declare an @Order value, getting processed in a corresponding order (e.g. for overriding beans by name) even when detected through classpath scanning."></a>3. Configuration classes may declare an <code>@Order</code> value, getting processed in a corresponding order (e.g. for overriding beans by name) even when detected through classpath scanning.</h3><blockquote>
+<p>配置类可以声明一个<code>@Order</code>的值, 按照相对应的顺序进行处理(),<br>支持对装载在诸如Lists和Arrays容器中的自动包装（auto-wired）组件的排序.</p>
+</blockquote>
+<p>示例:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RankService</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@Order</span>(<span class="number">2</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RankServiceImpl01</span> <span class="keyword">implements</span> <span class="title">RankService</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"RankServiceImpl01"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@Order</span>(<span class="number">1</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RankServiceImpl02</span> <span class="keyword">implements</span> <span class="title">RankService</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"RankServiceImpl02"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@Order</span>(<span class="number">3</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RankServiceImpl03</span> <span class="keyword">implements</span> <span class="title">RankService</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"RankServiceImpl03"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Results</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="meta">@Autowired</span></div><div class="line">  <span class="keyword">private</span> List&lt;RankService&gt; rankService;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> rankService.toString();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ComponentScan</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainTest</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(MainTest.class);</div><div class="line">    Results results = applicationContext.getBean(Results.class);</div><div class="line">    <span class="comment">// @Order 的值越小, 排序约靠前</span></div><div class="line">    System.out.println(results); <span class="comment">// [RankServiceImpl02, RankServiceImpl01, RankServiceImpl03]</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
             <!-- 捐赠 -- start -->
             <div class="reward">
                 <span>捐赠</span>
@@ -315,7 +320,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/">评论</a>
+        <a href="http://mysaul.com/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://mysaul.com/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/">评论</a>
     
 
         </footer>
@@ -324,19 +329,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Spring 4.3.12.RELEASE Core Container Imporvements(核心加强)
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/11/10/Java访问控制和应用场景/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/11/15/理解说明Servlet生命周期/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Java访问控制和应用场景</div>
+            <div class="article-nav-title">理解说明Servlet生命周期.</div>
         </a>
     
 </nav>
@@ -350,7 +346,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2017/11/15/理解说明Servlet生命周期/" data-title="理解说明Servlet生命周期." data-url="http://mysaul.com/2017/11/15/理解说明Servlet生命周期/"></div>
+    <div class="ds-thread" data-thread-key="2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/" data-title="Spring 4.3.12.RELEASE Core Container Imporvements(核心加强)" data-url="http://mysaul.com/2017/12/17/Spring4-3-12-RELEASE-Core-Container-Imporvements-核心加强/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
