@@ -89,3 +89,6 @@ $RECYCLE.BIN/
 db.json
 public
 .idea
+
+# vscode
+.vscode
