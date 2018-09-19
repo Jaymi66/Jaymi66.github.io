@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.fsocity.com/2018/09/19/一个关于蛋的争吵/index.html">
 <meta property="og:site_name" content="Zail's Blog">
 <meta property="og:description" content="这是一篇关于面向过程编程与面向对象编程的讨论, 本文中使用一个简单的示例去对比面向对象语言和面向过程语言都是如何设计的? 在应用程序中如何使用?">
-<meta property="og:updated_time" content="2018-09-19T05:15:33.082Z">
+<meta property="og:updated_time" content="2018-09-19T05:26:47.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个关于蛋的争吵">
 <meta name="twitter:description" content="这是一篇关于面向过程编程与面向对象编程的讨论, 本文中使用一个简单的示例去对比面向对象语言和面向过程语言都是如何设计的? 在应用程序中如何使用?">
@@ -254,30 +254,30 @@
 <p>设计思路是: 定义蛋为一个单位 -&gt; 书写打蛋方法 -&gt; 考虑单位和方法的可扩展性</p>
 </blockquote>
 <h3 id="面向过程语言代表露出它闪亮的牙结石出场了-c-语言"><a href="#面向过程语言代表露出它闪亮的牙结石出场了-c-语言" class="headerlink" title="面向过程语言代表露出它闪亮的牙结石出场了 (c 语言)"></a>面向过程语言代表露出它闪亮的牙结石出场了 (c 语言)</h3><p>实现 ↓</p>
-<ol>
-<li>定义蛋为一个单位</li>
-</ol>
+<ul>
+<li>第一步、定义蛋为一个单位</li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> dan_tem &#123;</div><div class="line">    <span class="keyword">int</span> danhuang;  <span class="comment">// 蛋黄</span></div><div class="line">    <span class="keyword">int</span> danqing;   <span class="comment">// 蛋清</span></div><div class="line">    <span class="keyword">char</span> color[<span class="number">8</span>]; <span class="comment">// 颜色</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>书写打蛋方法</li>
-</ol>
+<ul>
+<li>第二步、书写打蛋方法</li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dadan</span><span class="params">(dan_tem* dan)</span></span>&#123;</div><div class="line">    <span class="comment">// ... 这里省略了实现</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>考虑单位和方法的可扩展性</li>
-</ol>
+<ul>
+<li>第三步、考虑单位和方法的可扩展性</li>
+</ul>
 <p>无 🙂</p>
 <h3 id="面向对象语言的大佬带着它肥硕的姿态入场-Java-语言"><a href="#面向对象语言的大佬带着它肥硕的姿态入场-Java-语言" class="headerlink" title="面向对象语言的大佬带着它肥硕的姿态入场 (Java 语言)"></a>面向对象语言的大佬带着它肥硕的姿态入场 (Java 语言)</h3><p>实现 ↓</p>
-<ol>
-<li>定义一个蛋为一个单位</li>
-</ol>
+<ul>
+<li>第一步、定义一个蛋为一个单位</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dan</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> danhuang;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> danqing;</div><div class="line">    <span class="keyword">private</span> String color;</div><div class="line">    </div><div class="line">    <span class="comment">// constructer</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dan</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dan</span><span class="params">(<span class="keyword">int</span> danhuang, <span class="keyword">int</span> danqing, String color)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.danhuang = danhuang;</div><div class="line">        <span class="keyword">this</span>.danqing = danqing;</div><div class="line">        <span class="keyword">this</span>.color = color;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// getter &amp; setter</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDanhuang</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.danhuang;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDanhuang</span><span class="params">(<span class="keyword">int</span> danhuang)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.danhuang = danhuang;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDanqing</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.danqing;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDanqing</span><span class="params">(<span class="keyword">int</span> danqing)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.danqing = danqing;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.color = color;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>书写打蛋方法</li>
-</ol>
+<ul>
+<li>第二步、书写打蛋方法</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dadan</span><span class="params">(Dan dan)</span> </span>&#123;</div><div class="line">        <span class="comment">// ... 这里省略了实现</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>考虑单位和方法的可扩展性</li>
-</ol>
+<ul>
+<li>第三步、考虑单位和方法的可扩展性</li>
+</ul>
 <p>这个有好多可以考虑的哦…</p>
 <p>  (1) 首先考虑到 Dan 有不同的类型, 比如鸡蛋、鸭蛋等.</p>
 <p>  重新设计后</p>
@@ -291,8 +291,10 @@
 <p>那么问题就来了, 产品经理亮出了改需求的牌子, c 就吃不了兜着走了. 在可怕的产品经理面前 Java 巨硬无比.</p>
 <p>Java 程序设计完成后, 产品经理提出要拿铅球(蛋)做实验时, Java 程序员果断应下, 直接构造传参调用一气呵成, 抛出错误并且提示信息堪称完美.</p>
 <p>总结得出 </p>
-<p>c 有更快的优点, 开发效率和执行速度</p>
-<p>Java 有高可用高扩展性的优点</p>
+<ul>
+<li>c 有更快的优点, 开发效率和执行速度</li>
+<li>Java 有高可用高扩展性的优点</li>
+</ul>
 <p>我个人更喜欢 Java, 因为它让我通过抽象 Dan 实例和 Dadan 接口, 去更立体的了解方法(Dadan)的结构, 所用到实体(Dan)的结构.</p>
 
             <!-- 捐赠 -- start -->
